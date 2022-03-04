@@ -29,17 +29,12 @@ function rabbit () {
 
 function turtle () {
     const to = document.getElementById("turtle")
-    for ( let i = 1; i < 6; i++ ) {
-        let part = i * 20
-        setTimeout(
-            () => {
-                console.log(`Черепаха прошла ${part}% пути`)
-                if (part === 100) part = 90
-                to.style.left = `${part}%`
-            },
-            i * 1000
-        )   
-    }
+    let currentLeft = 0 
+    setInterval(() => {
+        currentLeft += 20
+        if (currentLeft === 100) currentLeft = 90
+        to.style.left = `${currentLeft}%`
+    }, 1000)
 }
 
 document.addEventListener("DOMContentLoaded", () => {
